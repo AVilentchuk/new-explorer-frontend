@@ -9,4 +9,5 @@
   line-height: 28px;
 
   color: #1a1b22;
+  transition: all 0.5 ease-in-out;
 }

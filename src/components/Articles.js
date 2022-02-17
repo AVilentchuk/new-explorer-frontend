@@ -4,7 +4,7 @@ import Article from "./Article";
 import MobileContext from "../context/mobile-context";
 
 const Articles = () => {
-  const isMobile = useContext(MobileContext);
+  const {isMobile} = useContext(MobileContext);
   return (
     <div className='articles'>
       <div className='articles__container'>

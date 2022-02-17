@@ -5,22 +5,31 @@ import UserContext from "../context/user-context";
 import ThemeContext from "../context/theme-context";
 import { ReactComponent as MenuButton } from "../assets/icons/mobile_menu.svg";
 import { ReactComponent as LogoutIcon } from "../assets/icons/logout.svg";
+import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ openPopup }) => {
   const [headerOpen, setHeaderOpen] = useState(false);
   const isMobile = useContext(MobileContext);
   const { signedStatus, userName } = useContext(UserContext);
   const { dark, light } = useContext(ThemeContext);
-  const theme = dark;
+  const [theme, setTheme] = useState(dark);
   const toggleHeaderMenu = () => {
     setHeaderOpen(!headerOpen);
   };
+
+  const navigate = useNavigate();
   const headerMenu = isMobile ? (
     <header
       className={`header ${isMobile && headerOpen ? "header_mobile" : ""}`}
-      style={theme ? theme.container : null}
+      style={theme ? theme.header : null}
     >
-      <h2 className='header__title' style={theme ? theme.container : null}>
+      <h2
+        className='header__title'
+        style={theme ? theme.container : null}
+        onClick={() => {
+          return navigate("/");
+        }}
+      >
         NewsExplorer
       </h2>
       <MenuButton
@@ -35,17 +44,36 @@ const Header = () => {
         className={`header__mobile-menu ${
           headerOpen && "header__mobile-menu_opened"
         }`}
-        style={theme ? theme.container : null}
+        style={theme ? theme.header : null}
       >
         <div className='header__navigation '>
           <p
-            className='header__navigation-link header__navigation-link_active'
+            className={`header__navigation-link ${
+              window.location.pathname !== "/saved-news"
+                ? "header__navigation-link_active"
+                : ""
+            }`}
             style={theme ? theme.container : null}
+            onClick={() => {
+              return navigate("/");
+            }}
           >
             Home
           </p>
           {signedStatus ? (
-            <p className='header__navigation-link '>Saved articles</p>
+            <p
+              className={`header__navigation-link ${
+                window.location.pathname === "/saved-news"
+                  ? "header__navigation-link_active"
+                  : ""
+              }`}
+              style={theme ? theme.container : null}
+              onClick={() => {
+                return navigate("/saved-news");
+              }}
+            >
+              Saved articles
+            </p>
           ) : (
             ""
           )}
@@ -64,6 +92,7 @@ const Header = () => {
             className='header__button header__button_logout button_mobile button'
             type='button'
             style={theme ? theme.button : null}
+            onClick={openPopup}
           >
             Sign in
           </button>
@@ -73,23 +102,43 @@ const Header = () => {
   ) : (
     <header
       className={`header ${isMobile && headerOpen ? "header_mobile" : ""}`}
-      style={theme ? theme.container : null}
+      style={theme ? theme.header : null}
     >
-      <h2 className='header__title' style={theme ? theme.container : null}>
+      <h2
+        className='header__title'
+        style={theme ? theme.container : null}
+        onClick={() => {
+          return navigate("/");
+        }}
+      >
         NewsExplorer
       </h2>
       <div className='header__container'>
         <div className='header__navigation'>
           <p
-            className='header__navigation-link header__navigation-link_active'
+            className={`header__navigation-link ${
+              window.location.pathname !== "/saved-news"
+                ? "header__navigation-link_active"
+                : ""
+            }`}
             style={theme ? theme.container : null}
+            onClick={() => {
+              return navigate("/");
+            }}
           >
             Home
           </p>
           {signedStatus ? (
             <p
-              className='header__navigation-link '
+              className={`header__navigation-link ${
+                window.location.pathname === "/saved-news"
+                  ? "header__navigation-link_active"
+                  : ""
+              }`}
               style={theme ? theme.container : null}
+              onClick={() => {
+                return navigate("/saved-news");
+              }}
             >
               Saved articles
             </p>
@@ -111,6 +160,7 @@ const Header = () => {
             className='header__button button'
             type='button'
             style={theme ? theme.button : null}
+            onClick={openPopup}
           >
             Sign in
           </button>
@@ -121,6 +171,12 @@ const Header = () => {
   useEffect(() => {
     !isMobile && setHeaderOpen(false);
   }, [isMobile, signedStatus]);
+  useEffect(() => {
+    window.location.pathname === "/saved-news"
+      ? setTheme(light)
+      : setTheme(dark);
+  }, [window.location.pathname]);
+
   return <>{headerMenu}</>;
 };
 

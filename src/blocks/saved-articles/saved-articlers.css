@@ -1,5 +1,5 @@
 .saved-articles {
-  /* padding: clamp(40px, 100vw/7 - 70px, 80px) clamp(40px, 100vw/9 - 55px, 104px); */
+  padding-top: clamp(80px, 8.6vw, 56px);
   display: flex;
   flex-direction: column;
   background: #fff;

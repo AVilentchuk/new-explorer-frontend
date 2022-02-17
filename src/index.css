@@ -14,7 +14,7 @@
 @import url("./blocks/header/__navigation-button/_type/header__navigation-button_opened.css");
 @import url("./blocks/header/__navigation-link/header__navigation-link.css");
 @import url("./blocks/header/__navigation-link/type/header__navigation-link_active.css");
-@import url("./blocks/header/__navigation/header_navigation.css");
+@import url("./blocks/header/__navigation/header__navigation.css");
 @import url("./blocks/header/__title/header__title.css");
 /* search */
 @import url("./blocks/search/search.css");

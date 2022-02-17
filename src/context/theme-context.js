@@ -2,6 +2,11 @@ import { createContext } from "react";
 
 export const theme = {
   light: {
+    header: {
+      color: "#1A1B22",
+      background: "#FFFFFF",
+      boxShadow: "inset 0px -1px 0px #D1D2D6",
+    },
     mobile: {
       color: "#1A1B22",
       background: "#FFFFFF",
@@ -16,12 +21,16 @@ export const theme = {
     },
     container: {
       color: "#1A1B22",
-      background: "#FFFFFF",
       borderColor: "#1A1B22",
-      boxShadow: "#838383",
     },
   },
   dark: {
+    header: {
+      color: "#FFFFFF",
+      borderColor: "#FFFFFF",
+      boxShadow: "inset 0px -1px 0px #D1D2D6",
+      boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.2)",
+    },
     mobile: {
       color: "#FFFFFF",
       borderColor: "#FFFFFF",

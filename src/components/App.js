@@ -1,38 +1,68 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { useWindowSize } from "../hooks/useWindowSize";
+import { useRoutes } from "react-router-dom";
+import SavedArticles from "./SavedArticles";
 
 import Header from "./Header";
 
 import Footer from "./Footer";
 import Main from "./Main";
 import "../App.css";
-import SigninPopup from "./SigninPopup";
 import Search from "./Search";
 
 import ThemeContext from "../context/theme-context";
 import MobileContext from "../context/mobile-context";
 import UserContext from "../context/user-context";
-import SignupPopup from "./SignupPopup";
+import Popup from "./Popup";
+import { Route, Routes } from "react-router-dom";
 function App() {
-  // const { theme } = useContext(MobileContext);
+  const [popupIsOpen, setPopupIsOpen] = useState(false);
+  const [popupType, setPopupType] = useState("Signin");
   const isMobile = useWindowSize().width < 531;
   const [userData, setUserData] = useState({
     signedStatus: false,
     userName: "placeHolder",
   });
 
+  const openPopup = (value) => {
+    setPopupIsOpen(true);
+    setPopupType(value);
+  };
+  const closePopup = () => {
+    setPopupIsOpen(false);
+  };
+  const popupChangeType = (value) => {
+    setPopupType(value);
+  };
+
   return (
     <div className='App'>
       <MobileContext.Provider value={isMobile}>
         <UserContext.Provider value={userData}>
-          <Header></Header>
-          <Search></Search>
-          <Main></Main>
+          <Header openPopup={openPopup} />
+          <Routes>
+            <Route path='/saved-news' element={<SavedArticles />} />
+            <Route
+              exact
+              path='/'
+              element={
+                <>
+                  <Search />
+                  <Main />
+                </>
+              }
+            />
+          </Routes>
+          <Popup
+            isOpen={popupIsOpen}
+            onClose={closePopup}
+            popupType={popupType}
+            changeState={popupChangeType}
+          />
         </UserContext.Provider>
-        <SignupPopup />
-        <SigninPopup /> <Footer />
       </MobileContext.Provider>
+      <Footer />
     </div>
   );
 }

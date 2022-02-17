@@ -2,7 +2,9 @@
   position: relative;
   display: flex;
   width: clamp(320px, 100vw, 430px);
-  height: clamp(380px, 1148px - 100vw, 560px);
+  min-height: 380px;
+  height: fit-content;
+  max-height: 560px;
   flex-direction: column;
   border-radius: 10px;
   background: #ffffff;

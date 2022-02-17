@@ -26,7 +26,7 @@ const PopupWithForm = ({
     } else {
       formRef.current.style.margin = "0 auto";
     }
-  }, [validate]);
+  }, [validate, formName]);
 
   useEffect(() => {
     if (form && isOpen) form.resetValidation();

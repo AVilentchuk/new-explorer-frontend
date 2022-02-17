@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import UserContext from "../context/user-context";
+
 const Article = ({ image, keyword, date, text, title, source }) => {
+  const { signedStatus } = useContext(UserContext);
   return (
     <div className='article'>
       <div
@@ -11,12 +15,16 @@ const Article = ({ image, keyword, date, text, title, source }) => {
         </ul>
         <div className='article__buttons-container'>
           <button
-            className='article__button article__button_save button'
+            className={`article__button article__button_save button`}
             type='button'
           ></button>
-          <div className='article__button-tooltip '>
-            Sign in to save articles
-          </div>
+          {!signedStatus ? (
+            <div className='article__button-tooltip '>
+              Sign in to save articles
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       <div className='article__content-container'>

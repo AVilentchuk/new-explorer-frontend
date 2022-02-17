@@ -3,40 +3,53 @@ import { useKey } from "../hooks/useKey";
 import PopupWithForm from "./PopupWithForm";
 import { useNavigate } from "react-router-dom";
 
-const SignupPopup = ({ isOpen, onClose, updateCurrentUser }) => {
+const Popup = ({ isOpen, onClose, popupType, changeState }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const navigate = useNavigate;
-  useEffect(() => {}, [isOpen]);
-
-  const formSubmit = () => {
-    return updateCurrentUser({ email: email, password, username });
-  };
-
+  useEffect(() => {}, [isOpen, popupType]);
   useKey("Escape", onClose, isOpen);
+
   const formSubtitle = (
     <p className='form__subtitle'>
-      or <a className='form__subtitle-link link'>Sign in</a>
+      or
+      {popupType === "signup" ? (
+        <a
+          className='form__subtitle-link link'
+          onClick={() => changeState("signin")}
+        >
+          {" "}
+          Sign in
+        </a>
+      ) : (
+        <a
+          className='form__subtitle-link link'
+          onClick={() => changeState("signup")}
+        >
+          {" "}
+          Sign up
+        </a>
+      )}
     </p>
   );
   return (
     <PopupWithForm
       isOpen={isOpen}
       onClose={onClose}
-      windowId='w-signup'
-      formHeader='Signup'
-      formName='Signup'
-      onSubmit={formSubmit}
-      validate={false}
-      buttonText='Sign up'
+      windowId='w-popup'
+      formHeader={popupType === "signup" ? "Signup" : "Signin"}
+      formName={popupType === "signup" ? "Signup" : "Signin"}
+      // onSubmit={popupType === signup ? formSubmitRegister : formSubmitLogin}
+      validate={true}
+      buttonText={popupType === "signup" ? "Sign up" : "Sign in"}
       subtitle={formSubtitle}
     >
       <label htmlFor='email' className='form__field'>
         Email
         <input
           className='form__input popup__form-input '
-          typeof='email'
+          type='email'
           name='email'
           id='email'
           value={email || ""}
@@ -52,7 +65,7 @@ const SignupPopup = ({ isOpen, onClose, updateCurrentUser }) => {
         Password
         <input
           className='form__input popup__form-input '
-          typeof='password'
+          type='password'
           name='password'
           id='password'
           value={password || ""}
@@ -64,24 +77,28 @@ const SignupPopup = ({ isOpen, onClose, updateCurrentUser }) => {
         />
         <span className='form__input-error'></span>
       </label>
-      <label htmlFor='username' className='form__field'>
-        Username
-        <input
-          className='form__input popup__form-input '
-          typeof='username'
-          name='username'
-          id='username'
-          value={username || ""}
-          placeholder='Enter username'
-          required
-          minLength='2'
-          maxLength='30'
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <span className='form__input-error'></span>
-      </label>
+      {popupType === "signup" ? (
+        <label htmlFor='username' className='form__field'>
+          Username
+          <input
+            className='form__input popup__form-input '
+            type='string'
+            name='username'
+            id='username'
+            value={username || ""}
+            placeholder='Enter username'
+            required
+            minLength='2'
+            maxLength='30'
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <span className='form__input-error'></span>
+        </label>
+      ) : (
+        ""
+      )}
     </PopupWithForm>
   );
 };
 
-export default SignupPopup;
+export default Popup;
