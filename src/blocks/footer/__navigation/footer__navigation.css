@@ -1,11 +1,10 @@
 .footer__navigation {
-  /* width: fit-content; */
+  display: flex;
   margin-top: clamp(20px, 238px - 100%, 30px);
   margin-bottom: clamp(21px, 1.95vw, 40px);
   grid-area: navigation;
-  display: flex;
   gap: clamp(18px, 5.625vw, 42px);
-  align-items: start;
+  align-items: flex-start;
 }
 @media screen and (max-width: 767px) {
   .footer__navigation {

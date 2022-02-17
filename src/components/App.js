@@ -1,7 +1,6 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
+import { useState } from "react";
 import { useWindowSize } from "../hooks/useWindowSize";
-import { useRoutes } from "react-router-dom";
 import SavedArticles from "./SavedArticles";
 
 import Header from "./Header";
@@ -11,7 +10,6 @@ import Main from "./Main";
 import "../App.css";
 import Search from "./Search";
 
-import ThemeContext from "../context/theme-context";
 import MobileContext from "../context/mobile-context";
 import UserContext from "../context/user-context";
 import Popup from "./Popup";
@@ -59,6 +57,7 @@ function App() {
             onClose={closePopup}
             popupType={popupType}
             changeState={popupChangeType}
+            setUserData={setUserData}
           />
         </UserContext.Provider>
       </MobileContext.Provider>
