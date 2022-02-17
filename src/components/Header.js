@@ -1,5 +1,5 @@
-import { useState, useEffect, useContext, useRef, createRef } from "react";
-import react from "react";
+import { useState, useEffect, useContext } from "react";
+
 import MobileContext from "../context/mobile-context";
 import UserContext from "../context/user-context";
 import ThemeContext from "../context/theme-context";
@@ -22,6 +22,7 @@ const Header = ({ openPopup }) => {
     <header
       className={`header ${isMobile && headerOpen ? "header_mobile" : ""}`}
       style={theme ? theme.header : null}
+      id='home'
     >
       <h2
         className='header__title'
@@ -175,7 +176,7 @@ const Header = ({ openPopup }) => {
     window.location.pathname === "/saved-news"
       ? setTheme(light)
       : setTheme(dark);
-  }, [window.location.pathname]);
+  }, [window.location.pathname, light, dark]);
 
   return <>{headerMenu}</>;
 };

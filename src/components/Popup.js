@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useKey } from "../hooks/useKey";
 import PopupWithForm from "./PopupWithForm";
 import { useNavigate } from "react-router-dom";
@@ -15,21 +15,21 @@ const Popup = ({ isOpen, onClose, popupType, changeState }) => {
     <p className='form__subtitle'>
       or
       {popupType === "signup" ? (
-        <a
+        <button
           className='form__subtitle-link link'
           onClick={() => changeState("signin")}
         >
           {" "}
           Sign in
-        </a>
+        </button>
       ) : (
-        <a
+        <button
           className='form__subtitle-link link'
           onClick={() => changeState("signup")}
         >
           {" "}
           Sign up
-        </a>
+        </button>
       )}
     </p>
   );

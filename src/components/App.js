@@ -19,7 +19,7 @@ function App() {
   const [popupType, setPopupType] = useState("Signin");
   const isMobile = useWindowSize().width < 531;
   const [userData, setUserData] = useState({
-    signedStatus: false,
+    signedStatus: true,
     userName: "placeHolder",
   });
 
