@@ -1,0 +1,98 @@
+.footer {
+  display: grid;
+  justify-items: space-between;
+  margin: 0 clamp(18px, 7.3vw, 104px);
+  justify-content: space-between;
+  grid-template-rows: max-content;
+  grid-template-areas: "content .. navigation";
+  height: clamp(80px, 495px - 100vw/2, 175px);
+}
+/* .footer__text {
+  margin-bottom: clamp(16px, 2.345vw, 26px);
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  align-self: flex-end;
+  identical to box height, or 137%
+
+  simulator/gray/text
+  grid-area: content;
+  color: #b6bcbf;
+} */
+/* .footer__navigation {
+  width: fit-content;
+  margin-top: clamp(20px, 238px - 100%, 30px);
+  margin-bottom: clamp(21px, 1.95vw, 40px);
+  grid-area: navigation;
+  display: flex;
+  gap: clamp(18px, 5.625vw, 42px);
+} */
+/* .footer__links {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-around;
+  width: clamp(200px, 62.5vw, 304px);
+} */
+/* .footer__link {
+  max-width: 192px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  or 133%
+
+  text-align: center;
+
+  main/primary
+
+  color: #1a1b22;
+}
+.footer__link:hover {
+  cursor: pointer;
+} */
+/* .footer__icons {
+  padding: 0;
+  align-items: center;
+  display: flex;
+  gap: 28px;
+  list-style: none;
+} */
+/* .footer__icon {
+  width: 24px;
+  height: 24px;
+}
+.footer__icon_facebook {
+  background: url("../../assets/icons/facebook.svg") no-repeat center;
+}
+.footer__icon_github {
+  background: url("../../assets/icons/github.svg") no-repeat center;
+} */
+@media screen and (max-width: 767px) {
+  /* .footer__links {
+    flex-direction: column;
+    justify-items: flex-start;
+      justify-content: flex-start;
+    align-items: flex-start;
+  } */
+  /* .footer__navigation {
+    display: flex;
+    justify-content: space-between;
+    grid-area: "navigation";
+    width: 100%;
+    align-items: flex-start;
+  } */
+  .footer {
+    margin: 0 clamp(16px, 5vw, 40px);
+    justify-content: unset;
+
+    grid-template-areas:
+      "navigation "
+      "content ";
+  }
+}

@@ -1,0 +1,17 @@
+.search__bar {
+  margin: 0 auto clamp(16px, 5.5vw, 80px);
+  background-color: #ffffff;
+  width: clamp(288px, 58vw, 608px);
+  height: clamp(56px, 7.3vw, 64px);
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  /* simulator/gray/divider */
+  align-content: baseline;
+  border: 1px solid #d1d2d6;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 100px;
+}

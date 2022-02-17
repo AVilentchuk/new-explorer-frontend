@@ -1,0 +1,12 @@
+.popup__title {
+  text-align: left;
+  width: clamp(238px, 28vw, 358px);
+  margin: 34px auto 22px clamp(17px, 5.315vw, 36px);
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #1a1b22;
+}

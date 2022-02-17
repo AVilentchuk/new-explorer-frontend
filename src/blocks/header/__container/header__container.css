@@ -1,0 +1,19 @@
+.header__container {
+  margin: auto clamp(40px, 7.23vw, 104px);
+  height: inherit;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  /* identical to box height, or 133% */
+
+  display: flex;
+  gap: 42px;
+  align-items: center;
+  text-align: center;
+
+  /* main/white */
+
+  color: #ffffff;
+}

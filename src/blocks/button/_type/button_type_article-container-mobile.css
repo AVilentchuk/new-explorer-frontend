@@ -1,0 +1,17 @@
+.article__container-button_mobile {
+  margin: 16px auto;
+  width: 288px;
+  height: 64px;
+  border-radius: 80px;
+
+  background: #ffffff;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+
+  /* main/primary */
+  border: none;
+  color: #1a1b22;
+}

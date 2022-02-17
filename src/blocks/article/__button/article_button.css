@@ -1,0 +1,9 @@
+.article__button {
+  align-self: flex-end;
+  padding: 0 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: #ffffff;
+}

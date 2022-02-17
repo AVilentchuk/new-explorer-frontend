@@ -1,0 +1,16 @@
+.footer__links {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-around;
+  width: clamp(200px, 62.5vw, 304px);
+}
+@media screen and (max-width: 767px) {
+  .footer__links {
+    flex-direction: column;
+    /* justify-items: flex-start;
+      justify-content: flex-start; */
+    align-items: flex-start;
+  }
+}

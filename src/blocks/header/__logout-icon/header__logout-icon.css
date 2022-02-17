@@ -1,0 +1,5 @@
+.header__logout-icon {
+  margin-left: clamp(13px, 1.7vw, 19px);
+  width: 24px;
+  height: 24px;
+}

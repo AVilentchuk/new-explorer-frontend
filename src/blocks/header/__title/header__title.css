@@ -1,0 +1,12 @@
+.header__title {
+  margin: auto clamp(40px, 7.23vw, 104px);
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: clamp(16px, 6.25vw, 20px);
+  line-height: 24px;
+
+  /* main/white */
+
+  color: #ffffff;
+}

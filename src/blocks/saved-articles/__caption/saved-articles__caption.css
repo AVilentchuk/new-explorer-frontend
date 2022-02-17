@@ -1,0 +1,21 @@
+.saved-articles__caption {
+  justify-self: flex-start;
+  margin: clamp(8px, 5.21vw, 40px) auto clamp(16px, 3.125vw, 28px)
+    clamp(40px, 100vw/10 - 40px, 104px);
+  text-align: left;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+
+  color: rgba(26, 27, 34, 0.5);
+}
+
+@media screen and (max-width: 767px) {
+  .saved-articles__caption {
+    margin: clamp(8px, 100vw/12 - 24px, 40px) auto clamp(16px, 3.125vw, 28px)
+      clamp(16px, 2.5vw, 40px);
+  }
+}

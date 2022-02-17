@@ -1,0 +1,24 @@
+.article__button-tooltip {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  width: fit-content;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: #ffffff;
+  visibility: hidden;
+  opacity: 0;
+
+  transition: visibility, opacity 0.5s ease-in-out;
+}
+.article__button_save:hover ~ .article__button-tooltip {
+  visibility: visible;
+  opacity: 1;
+}

@@ -1,0 +1,19 @@
+.articles__container {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: repeat(3, min-content);
+  grid-gap: clamp(8px, 2.5vw, 16px);
+}
+
+@media screen and (max-width: 760px) {
+  .articles__container {
+    grid-template-columns: repeat(2, min-content);
+  }
+}
+@media screen and (max-width: 530px) {
+  .articles__container {
+    grid-template-columns: min-content;
+  }
+}

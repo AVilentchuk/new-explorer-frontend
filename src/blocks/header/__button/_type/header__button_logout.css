@@ -1,0 +1,5 @@
+.header__button_logout {
+  padding: 0 clamp(15px, 1.95vw, 19px);
+  color: #1a1b22;
+  width: fit-content;
+}

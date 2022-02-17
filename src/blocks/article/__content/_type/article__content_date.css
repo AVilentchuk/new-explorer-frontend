@@ -1,0 +1,30 @@
+.article__content_date {
+  margin: clamp(16px, 6.25vw, 20px) clamp(16px, 5vw, 24px)
+    clamp(12px, 3.125vw, 10px);
+  font-family: Source Sans Pro;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+
+  /* identical to box height, or 133% */
+
+  display: flex;
+  align-items: center;
+  text-overflow: clip;
+  /* simulator/gray/text */
+
+  color: #b6bcbf;
+}
+@media screen and (max-width: 760px) {
+  .article__content_date {
+    margin: clamp(16px, 6.25vw, 20px) clamp(16px, 5vw, 24px)
+      clamp(12px, 3.125vw, 10px);
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .article__content_date {
+    margin: clamp(16px, 5vw, 20px) clamp(16px, 5vw, 24px)
+      clamp(10px, 3.125vw, 12px);
+  }
+}

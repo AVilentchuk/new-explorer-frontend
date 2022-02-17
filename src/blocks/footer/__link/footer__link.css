@@ -1,0 +1,19 @@
+.footer__link {
+  max-width: 192px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  /* or 133% */
+
+  text-align: center;
+
+  /* main/primary */
+
+  color: #1a1b22;
+}
+.footer__link:hover {
+  cursor: pointer;
+}

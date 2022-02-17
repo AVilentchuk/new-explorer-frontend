@@ -1,0 +1,8 @@
+.article__content-container {
+  display: flex;
+  height: 50%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  flex-grow: 2;
+}

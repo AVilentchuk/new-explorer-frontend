@@ -1,0 +1,5 @@
+.search__button_mobile {
+  margin: 0 auto clamp(32px, 10vw, 48px);
+  width: clamp(288px, 58vw, 486px);
+  height: clamp(56px, 7.3vw, 64px);
+}

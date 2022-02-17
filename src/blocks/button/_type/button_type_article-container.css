@@ -1,0 +1,29 @@
+.button_type_article-container {
+  padding: 0;
+  margin: clamp(32px, 100vw/10 - 50px, 64px) auto
+    clamp(40px, 100vw/10 - 36.8px, 80px);
+  height: clamp(54px, 7.03vw, 64px);
+  width: clamp(240px, 31.25vw, 288px);
+  border-radius: 80px;
+  /* main/white-hover */
+  text-align: center;
+  background: #ffffff;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  /* identical to box height, or 133% */
+
+  /* main/primary */
+  border: none;
+  color: #1a1b22;
+  transition: background 0.2s ease-in-out;
+}
+.button_type_article-container:hover {
+  background: #e8e8e8;
+  cursor: pointer;
+}
+.button_type_article-container:active {
+  background: #ffffff;
+}

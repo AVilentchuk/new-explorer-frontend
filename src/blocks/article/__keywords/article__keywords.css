@@ -1,0 +1,24 @@
+.article__keywords {
+  margin: clamp(8px, 100vw/12 - 86px, 24px);
+  padding: 0;
+  list-style: none;
+  align-self: flex-start;
+  justify-self: flex-start;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  cursor: pointer;
+}
+@media screen and (max-width: 760px) {
+  .article__keywords {
+    margin: clamp(8px, 100vw/6 - 86px, 24px);
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .article__keywords {
+    margin: clamp(8px, 100vw/4 - 86px, 24px);
+  }
+}
