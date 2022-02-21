@@ -1,0 +1,8 @@
+.article__button_delete {
+  background: url("../../../../assets/icons/delete.svg") #ffffff no-repeat
+    center;
+}
+.article__button_delete:hover {
+  background: url("../../../../assets/icons/delete_hover.svg") #ffffff no-repeat
+    center;
+}

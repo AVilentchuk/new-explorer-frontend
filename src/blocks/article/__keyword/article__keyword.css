@@ -1,0 +1,12 @@
+.article__keyword {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: fit-content;
+  min-height: 40px;
+  min-width: 40px;
+  padding: 0 22px;
+  border-radius: 10px;
+}

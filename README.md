@@ -1,8 +1,7 @@
 # Important notes
 
-To see all the buttons and content you need to toggle between signed-in mode and signed-out mode
-to do this please toggle the signedStatus value inside app.js to the desired state (false or true).
-
+## To see all the buttons and content you need to toggle between signed-in mode and signed-out mode to do this please toggle the signedStatus value inside app.js to the desired state (false or true).
+## to see search results please insert a string into the search bar and search.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

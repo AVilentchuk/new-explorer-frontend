@@ -3,7 +3,7 @@
   /* margin: clamp(86px, 26.875vw, 160px) auto 0 clamp(19px, 21.23vw, 163px); */
   margin: clamp(86px, 26.875vw, 160px) auto 0;
   width: clamp(285px, 33.9vw + 124.6px, 608px);
-  font-family: Roboto Slab;
+  font-family: Roboto Slab, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: clamp(36px, 4.69vw, 60px);

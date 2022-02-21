@@ -3,7 +3,7 @@
   flex-direction: column;
   text-align: left;
   width: clamp(250px, 28vw, 358px);
-  font-family: Inter;
+  font-family: Inter, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;

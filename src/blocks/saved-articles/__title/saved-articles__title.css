@@ -1,7 +1,7 @@
 .saved-articles__title {
   margin: clamp(32px, 100vw/10 - 50px, 64px) auto
     clamp(40px, 100vw/10 - 36.8px, 80px) clamp(40px, 100vw/10 - 40px, 104px);
-  font-family: Roboto Slab;
+  font-family: Roboto Slab, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: clamp(30px, 3.9vw, 40px);

@@ -1,5 +1,7 @@
 .form__subtitle-link {
   color: #2f71e5;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
 }
 .form__subtitle-link:hover {

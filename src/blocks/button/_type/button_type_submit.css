@@ -5,7 +5,7 @@
   width: clamp(288px, 90vw, 360px);
   height: 64px;
   background: #2f71e5;
-  font-family: Roboto;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;

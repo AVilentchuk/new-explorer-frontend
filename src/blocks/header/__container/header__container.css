@@ -1,7 +1,7 @@
 .header__container {
   margin: auto clamp(40px, 7.23vw, 104px) auto auto;
   height: inherit;
-  font-family: Roboto;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;

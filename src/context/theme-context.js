@@ -28,13 +28,11 @@ export const theme = {
     header: {
       color: "#FFFFFF",
       borderColor: "#FFFFFF",
-      boxShadow: "inset 0px -1px 0px #D1D2D6",
       boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.2)",
     },
     mobile: {
       color: "#FFFFFF",
       borderColor: "#FFFFFF",
-      background: "rgba(196, 196, 196, 0.01)",
       background: "#1A1B22",
       boxShadow: " rgba(255, 255, 255, 0.2)",
     },

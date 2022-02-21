@@ -2,7 +2,7 @@
   width: clamp(288px, 37.5vw + 164px, 608px);
   margin: clamp(16px, 148px - 7.16vw, 32px) auto clamp(48px, 6.25vw, 88px) auto;
   text-align: left;
-  font-family: Roboto;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;

@@ -1,11 +1,15 @@
 .header__navigation-link {
   margin: 0;
+  padding: 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 64px;
   height: 100%;
-  flex-basis: 100%;
   cursor: pointer;
   white-space: nowrap;
+  background-color: transparent;
+  border: none;
+  min-width: max-content;
+  flex-basis: 100%;
+  flex-grow: 1;
 }

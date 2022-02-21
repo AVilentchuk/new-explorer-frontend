@@ -1,7 +1,7 @@
 .saved-articles__subtitle {
   margin: clamp(32px, 4.167vw, 56px) auto clamp(32px, 4.167vw, 56px)
     clamp(40px, 100vw/10 - 40px, 104px);
-  font-family: Roboto;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   font-style: normal;
   text-align: left;
   font-weight: normal;

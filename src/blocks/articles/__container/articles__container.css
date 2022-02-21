@@ -5,6 +5,7 @@
   justify-items: center;
   grid-template-columns: repeat(3, min-content);
   grid-gap: clamp(8px, 2.5vw, 16px);
+  transition: all 0.5s ease-in-out;
 }
 
 @media screen and (max-width: 760px) {

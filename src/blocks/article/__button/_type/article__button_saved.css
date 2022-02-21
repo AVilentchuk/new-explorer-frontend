@@ -1,3 +1,6 @@
 .article__button_saved {
   background: url("../../../../assets/icons/saved.svg") #ffffff no-repeat center;
 }
+.article__button_saved:hover {
+  background: url("../../../../assets/icons/saved_hover.svg") #ffffff no-repeat center;
+}

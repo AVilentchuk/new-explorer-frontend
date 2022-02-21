@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   width: clamp(320px, 100vw, 430px);
-  min-height: 380px;
   height: fit-content;
   max-height: 560px;
   flex-direction: column;
