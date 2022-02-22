@@ -1,10 +1,82 @@
 .search-results {
-  /* padding: clamp(40px, 100vw/7 - 70px, 80px) clamp(40px, 100vw/9 - 55px, 104px); */
   display: flex;
   flex-direction: column;
   background: #f5f6f7;
 }
+/* .search-results__image {
+  margin-top: 86px;
+  background: url("../../assets/icons/not_found.svg") no-repeat center;
+  min-width: 83.5px;
+  min-height: 83.5px;
+} */
 
+/* .search-results__subtitle {
+  font-family: Roboto Slab, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 30px;
+  text-align: center;
+  color: #1a1b22;
+} */
+/* .search-results__caption {
+  margin: clamp(16px, 5vw, 32px) auto clamp(24px, 5.201vw, 80px);
+  max-width: 356px;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #b6bcbf;
+} */
+
+/* .search-results__preloader-background {
+  margin: 80px auto;
+  display: flex;
+  flex-direction: column;
+  min-height: fit-content;
+  background-color: #f5f6f7;
+  overflow: hidden;
+} */
+
+/* .search-results__circle-preloader {
+  margin: 0 auto;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  --border-width: 1px;
+  --mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--border-width) - 0.5px),
+    #1a1b22 calc(100% - var(--border-width) + 0.5px)
+  );
+  mask: var(--mask);
+
+  background: linear-gradient(to top, #1a1b22, rgb(26, 27, 34, 0.5)) 100% 0/50%
+      no-repeat,
+    linear-gradient(rgb(26, 27, 34, 0.5) 50%, rgba(209, 210, 214, 0) 100%) 0 0/50%
+      100% no-repeat;
+
+  animation: spin 0.75s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+} */
+
+/* .search-results__preloader-caption {
+  align-self: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #b6bcbf;
+} */
 /* .search-results__title {
   margin: clamp(16px, 2.083vw, 28px) auto clamp(16px, 2.083vw, 30px)
     clamp(40px, 100vw/10 - 40px, 104px);

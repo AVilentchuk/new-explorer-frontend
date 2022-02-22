@@ -19,7 +19,7 @@ function App() {
   const [toolTipIsOpen, setToolTipIsOpen] = useState(true);
   const [popupType, setPopupType] = useState("Signin");
   const [statusMessage, setStatusMessage] = useState("");
-  const isMobile = useWindowSize().width < 531;
+  let isMobile = useWindowSize().width < 531;
   const [userData, setUserData] = useState({
     signedStatus: false,
     userName: "Username",
@@ -66,7 +66,7 @@ function App() {
             isOpen={toolTipIsOpen}
             onClose={closePopup}
             noClose={false}
-            status={null}
+            status={true}
             statusMessage={`${statusMessage}`}
           ></InfoTooltip>
         </UserContext.Provider>

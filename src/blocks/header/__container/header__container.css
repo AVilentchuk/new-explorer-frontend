@@ -1,5 +1,5 @@
 .header__container {
-  margin: auto clamp(40px, 7.23vw, 104px) auto auto;
+  margin: auto clamp(40px, 11.1vw - 56px, 104px) auto auto;
   height: inherit;
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-style: normal;
@@ -9,11 +9,17 @@
   /* identical to box height, or 133% */
 
   display: flex;
-  gap: 42px;
+  gap: clamp(16px, 5vw, 42px);
   align-items: center;
   text-align: center;
 
   /* main/white */
 
   color: #ffffff;
+}
+
+@media screen and (max-width: 767px) {
+  .header__container {
+    margin-right: clamp(16px, 3.2vw, 40px);
+  }
 }

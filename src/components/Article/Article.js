@@ -60,7 +60,7 @@ const Article = ({
       </div>
       <div className='article__content-container'>
         <p className='article__content-date'>{date}</p>
-        <h1 className='article__content-title'>{title}</h1>
+        <h2 className='article__content-title'>{title}</h2>
         <p className='article__content-text'>{text}</p>
         <p className='article__content-source'>{source}</p>
       </div>

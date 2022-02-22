@@ -22,7 +22,9 @@ const InfoTooltip = ({
   useEffect(() => {
     if (status === null) setToolTipMessage(statusMessage);
     if (status) {
-      setToolTipMessage(` ${statusMessage}Registration successfully completed!`);
+      setToolTipMessage(
+        ` ${statusMessage}Registration successfully completed!`
+      );
     } else if (status === false) {
       setToolTipMessage(
         `Oops, something went wrong! Please try again.  \n Error: ${statusMessage}.`
@@ -51,11 +53,9 @@ const InfoTooltip = ({
             onClick={onClose}
           ></button>
         )}
-        <div className={`tooltip ${handleTooltipImage()} `}>
-          {status === null && spinner}
-        </div>
+
         <h2 className='popup__title popup__title_tooltip'>{toolTipMessage}</h2>
-        {<a className="popup__subtitle">Sign in</a>}
+        {<a className='popup__subtitle'>Sign in</a>}
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ const Footer = () => {
         <ul className='footer__icons'>
           <li>
             <a
-              className='footer_link'
+              className='footer__link'
               href='https://github.com/'
               target='_blank'
               rel='noopener noreferrer'
@@ -35,7 +35,7 @@ const Footer = () => {
           </li>
           <li>
             <a
-              className='footer_link'
+              className='footer__link'
               href='https://www.facebook.com/'
               target='_blank'
               rel='noopener noreferrer'

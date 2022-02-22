@@ -9,7 +9,12 @@
   white-space: nowrap;
   background-color: transparent;
   border: none;
-  min-width: max-content;
   flex-basis: 100%;
   flex-grow: 1;
+  transition: all 0.5s ease-in-out;
+}
+@media screen and (max-width: 767px) {
+  .header__navigation-link {
+    white-space: normal;
+  }
 }

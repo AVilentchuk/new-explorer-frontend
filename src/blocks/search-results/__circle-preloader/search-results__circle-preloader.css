@@ -1,14 +1,4 @@
-.preloader-background {
-  margin: 80px auto;
-  display: flex;
-  flex-direction: column;
-  min-height: fit-content;
-  background-color: #f5f6f7;
-
-  overflow: hidden;
-}
-
-.circle-preloader {
+.search-results__circle-preloader {
   margin: 0 auto;
   width: 74px;
   height: 74px;
@@ -33,21 +23,4 @@
   100% {
     transform: rotate(360deg);
   }
-}
-
-.preloader-caption {
-  align-self: center;
-
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 24px;
-  /* identical to box height, or 133% */
-
-  text-align: center;
-
-  /* simulator/gray/text */
-
-  color: #b6bcbf;
 }

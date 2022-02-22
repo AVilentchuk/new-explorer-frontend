@@ -1,0 +1,8 @@
+.search-results__preloader-background {
+  margin: 80px auto;
+  display: flex;
+  flex-direction: column;
+  min-height: fit-content;
+  background-color: #f5f6f7;
+  overflow: hidden;
+}

@@ -2,14 +2,7 @@
 /* fonts */
 @import url("./assets/fonts/inter/inter.css");
 @import url("./assets/fonts/roboto/roboto.css");
-/* buttons */
-@import url("./blocks/button/button.css");
-@import url("./blocks/button/_type/button_type_submit.css");
-@import url("./blocks/button/_type/button_type_article-container.css");
-@import url("./blocks/button/_type/button_type_article-container-mobile.css");
-@import url("./blocks/button/_disabled/button_disabled.css");
-@import url("./blocks/button/_disabled/button_disabled.css");
-@import url("./blocks/button/_type/button_type_close.css");
+
 /* forms */
 @import url("./blocks/form/form.css");
 @import url("./blocks/form/__field/form__field.css");
@@ -36,3 +29,12 @@
 /* popups */
 @import url("./components/Popup/Popup.css");
 @import url("./components/InfoTooltip/InfoTooltip.css");
+/* buttons */
+@import url("./blocks/button/button.css");
+@import url("./blocks/button/_type/button_type_submit.css");
+@import url("./blocks/button/_type/button_mobile.css");
+@import url("./blocks/button/_type/button_type_article-container.css");
+@import url("./blocks/button/_type/button_type_article-container-mobile.css");
+@import url("./blocks/button/_disabled/button_disabled.css");
+@import url("./blocks/button/_disabled/button_disabled.css");
+@import url("./blocks/button/_type/button_type_close.css");

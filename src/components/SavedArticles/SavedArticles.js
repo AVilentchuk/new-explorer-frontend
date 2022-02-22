@@ -57,10 +57,10 @@ const SavedArticles = () => {
     <section className='saved-articles'>
       <div className='saved-articles__text'>
         <p className='saved-articles__caption'>Saved articles</p>
-        <h2 className='section__title saved-articles__title'>
+        <h1 className='section__title saved-articles__title'>
           name, you have {list.length} saved articles
-        </h2>
-        <h3 className='section__subtitle saved-articles__subtitle'>
+        </h1>
+        <h2 className='section__subtitle saved-articles__subtitle'>
           By keywords:{" "}
           <span className='saved-articles__subtitle-list'>
             {`${keywords.filter((item, index) => index < 2)} ${
@@ -68,7 +68,7 @@ const SavedArticles = () => {
             }`}
             {console.log(keywords.length)}
           </span>
-        </h3>
+        </h2>
       </div>
       {list && <Articles list={list} type={"saved-articles"} />}
     </section>

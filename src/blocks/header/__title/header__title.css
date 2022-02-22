@@ -1,5 +1,5 @@
 .header__title {
-  margin: auto clamp(40px, 7.23vw, 104px);
+  margin: auto auto auto clamp(40px, 11.1vw - 56px, 104px);
   font-family: Roboto Slab, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -9,4 +9,10 @@
   /* main/white */
   cursor: pointer;
   color: #ffffff;
+}
+
+@media screen and (max-width: 767px) {
+  .header__title {
+    margin-left: clamp(16px, 5vw, 40px);
+  }
 }

@@ -43,7 +43,7 @@ const Articles = ({ type, list, index }) => {
     setArticles(
       list.slice(0, currentIndex).map((element) => renderArticle(element))
     );
-  }, [currentIndex, list, ]);
+  }, [currentIndex, list]);
 
   useEffect(() => {}, []);
   return (

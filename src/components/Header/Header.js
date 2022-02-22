@@ -8,8 +8,8 @@ import { ReactComponent as LogoutIcon } from "../../assets/icons/logout.svg";
 import { useNavigate } from "react-router-dom";
 
 const Header = ({ openPopup }) => {
-  const [headerOpen, setHeaderOpen] = useState(false);
   const isMobile = useContext(MobileContext);
+  const [headerOpen, setHeaderOpen] = useState(false);
   const { signedStatus, userName } = useContext(UserContext);
   const { dark, light } = useContext(ThemeContext);
   const [theme, setTheme] = useState(dark);

@@ -3,7 +3,7 @@ import { useKey } from "../../hooks/useKey";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useNavigate } from "react-router-dom";
 
-const Popup = ({ isOpen, onClose, popupType, changeState }) => {
+const Popup = ({ isOpen, onClose, popupType, changeState, changeStatus }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
