@@ -1,0 +1,4 @@
+.header__logout-icon {
+  margin-left: clamp(13px, 1.7vw, 19px);
+  align-self: center;
+}

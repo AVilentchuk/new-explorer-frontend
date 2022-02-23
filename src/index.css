@@ -1,0 +1,40 @@
+@import url("./vendor/normalize.css");
+/* fonts */
+@import url("./assets/fonts/inter/inter.css");
+@import url("./assets/fonts/roboto/roboto.css");
+
+/* forms */
+@import url("./blocks/form/form.css");
+@import url("./blocks/form/__field/form__field.css");
+@import url("./blocks/form/__input/form__input.css");
+@import url("./blocks/form/__input/_status/form__input_status.css");
+@import url("./blocks/form/__subtitle-link/form__subtitle-link.css");
+@import url("./blocks/form/__subtitle/form__subtitle.css");
+/* header & nav */
+@import url("./components/Header/Header.css");
+/* search */
+@import url("./components/Search/Search.css");
+/* About */
+@import url("./components/About/About.css");
+/* footer */
+@import url("./components/Footer/Footer.css");
+/* search-results */
+@import url("./components/SearchResults/SearchResults.css");
+/* saved-articles */
+@import url("./components/SavedArticles/SavedArticles.css");
+/* articles */
+@import url("./components/Articles/Articles.css");
+/* article */
+@import url("./components/Article/Article.css");
+/* popups */
+@import url("./components/Popup/Popup.css");
+@import url("./components/InfoTooltip/InfoTooltip.css");
+/* buttons */
+@import url("./blocks/button/button.css");
+@import url("./blocks/button/_type/button_type_submit.css");
+@import url("./blocks/button/_type/button_mobile.css");
+@import url("./blocks/button/_type/button_type_article-container.css");
+@import url("./blocks/button/_type/button_type_article-container-mobile.css");
+@import url("./blocks/button/_disabled/button_disabled.css");
+@import url("./blocks/button/_disabled/button_disabled.css");
+@import url("./blocks/button/_type/button_type_close.css");

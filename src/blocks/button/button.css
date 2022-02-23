@@ -1,0 +1,10 @@
+.button {
+  filter: drop-shadow(3px 3px 2px rgba(14, 26, 57, 0.2));
+  transition: all 0.3s ease-in-out;
+  transition-property: opacity, background-color, color;
+}
+.button:hover {
+  filter: none;
+  cursor: pointer;
+  opacity: 0.9;
+}

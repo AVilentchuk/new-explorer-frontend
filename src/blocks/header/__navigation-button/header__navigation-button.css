@@ -1,0 +1,7 @@
+.header__navigation-button {
+  border: none;
+  width: 24px;
+  margin: 16px 15px 16px auto;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}

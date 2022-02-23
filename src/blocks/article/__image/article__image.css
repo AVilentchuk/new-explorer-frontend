@@ -1,0 +1,21 @@
+.article__image {
+  display: flex;
+  width: 100%;
+  height: clamp(35.715%, 19.54vw, 47.3%);
+  justify-content: space-between;
+  background-color: #1a1b22;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  object-fit: fill;
+}
+@media screen and (max-width: 760px) {
+  .article__image {
+    height: clamp(150px, 35.6vw, 272px);
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .article__image {
+    height: clamp(196px, 46.9vw, 282px);
+  }
+}

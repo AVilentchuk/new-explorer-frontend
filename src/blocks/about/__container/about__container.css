@@ -1,0 +1,15 @@
+.about__container {
+  margin-left: clamp(32px, 4.167vw, 56px);
+  margin-top: clamp(40px, 100vw/7 - 70px, 131px);
+  width: clamp(424px, 55.2vw, 600px);
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 760px) {
+  .about__container {
+    flex-basis: 100%;
+    width: 100%;
+    margin: 0 auto clamp(98px, 320px - 60vw, 128px);
+  }
+}

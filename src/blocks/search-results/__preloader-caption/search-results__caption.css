@@ -1,0 +1,11 @@
+.search-results__caption {
+  margin: clamp(16px, 5vw, 32px) auto clamp(24px, 5.201vw, 80px);
+  max-width: 356px;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #b6bcbf;
+}

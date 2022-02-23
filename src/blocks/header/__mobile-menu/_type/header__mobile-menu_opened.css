@@ -1,0 +1,5 @@
+.header__mobile-menu_opened {
+  top: 100%;
+  opacity: 1;
+  box-shadow: inset 0px -1px 0px #d1d2d6;
+}

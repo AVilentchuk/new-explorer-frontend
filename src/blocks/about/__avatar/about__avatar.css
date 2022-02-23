@@ -1,0 +1,20 @@
+.about__avatar {
+  margin: clamp(61px, 100vw/18, 80px) 0 clamp(61px, 100vw/18, 80px)
+    clamp(40px, 100vw/9 - 55px, 104px);
+  background: url("../../../assets/images/about.png") no-repeat center/cover;
+  min-width: clamp(232px, 30.21vw, 464px);
+  min-height: clamp(232px, 30.21vw, 464px);
+  max-width: clamp(232px, 30.21vw, 464px);
+  max-height: clamp(232px, 30.21vw, 464px);
+  border-radius: 1000px;
+}
+@media screen and (max-width: 760px) {
+  .about__avatar {
+    margin: clamp(32px, 100vw/5 - 32px, 61px) auto
+      clamp(24px, 100vw/5 - 40px, 61px);
+    min-width: clamp(232px, 85vw, 464px);
+    min-height: clamp(232px, 85vw, 464px);
+    max-width: clamp(232px, 85vw, 464px);
+    max-height: clamp(232px, 85vw, 464px);
+  }
+}

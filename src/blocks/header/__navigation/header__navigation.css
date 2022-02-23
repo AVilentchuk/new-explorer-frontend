@@ -1,0 +1,11 @@
+.header__navigation {
+  display: flex;
+  min-height: 56px;
+  height: 100%;
+  gap: clamp(16px, 2.084vw, 32px);
+}
+
+.header__mobile-menu > .header__navigation {
+  flex-direction: row;
+  gap: 16px;
+}
