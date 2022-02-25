@@ -1,8 +1,7 @@
 .search-results__preloader-background {
-  margin: 80px auto;
+  padding: 80px 0px;
+  max-height: 282px;
   display: flex;
   flex-direction: column;
-  min-height: fit-content;
   background-color: #f5f6f7;
-  overflow: hidden;
 }

@@ -1,76 +1,52 @@
 import Articles from "../Articles/Articles";
 import image1 from "../../assets/images/Treehugger.png";
-
+import api from "../../utils/MainApi";
+import { useContext, useEffect, useState } from "react";
+import UserContext from "../../context/user-context";
 const SavedArticles = () => {
-  const list = [
-    {
-      title: `Everyone Needs a Special 'Sit Spot' in Nature`,
-      text: `Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...`,
-      keyword: "test",
-      image: image1,
-      date: new Date(Date.now()).toDateString(),
-      source: "treehugger",
-    },
-    {
-      title: `Everyone Needs a Special 'Sit Spot' in Nature`,
-      text: `Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...`,
-      keyword: "test",
-      image: image1,
-      date: new Date(Date.now()).toDateString(),
-      source: "treehugger",
-    },
-    {
-      title: `Everyone Needs a Special 'Sit Spot' in Nature`,
-      text: `Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...`,
-      keyword: "another",
-      image: image1,
-      date: new Date(Date.now()).toDateString(),
-      source: "treehugger",
-    },
-    {
-      title: `Everyone Needs a Special 'Sit Spot' in Nature`,
-      text: `Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...`,
-      keyword: "keyword",
-      image: image1,
-      date: new Date(Date.now()).toDateString(),
-      source: "treehugger",
-    },
-    {
-      title: `Everyone Needs a Special 'Sit Spot' in Nature`,
-      text: `Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...`,
-      keyword: "test",
-      image: image1,
-      date: new Date(Date.now()).toDateString(),
-      source: "treehugger",
-    },
-    {
-      title: `Everyone Needs a Special 'Sit Spot' in Nature`,
-      text: `Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...`,
-      keyword: "lol",
-      image: image1,
-      date: new Date(Date.now()).toDateString(),
-      source: "treehugger",
-    },
-  ];
-  const keywords = Array.from(new Set(list.map((item) => item.keyword)));
+  const [articleList, setArticlesList] = useState([]);
+  const [keywords, setKeywords] = useState([]);
+  const { userName } = useContext(UserContext);
+
+  useEffect(() => {
+    api
+      .getInitialCards()
+      .then((res) => setArticlesList(res.data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    setKeywords(Array.from(new Set(articleList.map((item) => item.keyword))));
+  }, [articleList]);
   return (
     <section className='saved-articles'>
       <div className='saved-articles__text'>
         <p className='saved-articles__caption'>Saved articles</p>
         <h1 className='section__title saved-articles__title'>
-          name, you have {list.length} saved articles
+          {articleList && articleList.length > 0
+            ? `${userName}, you have ${articleList.length} saved articles`
+            : `${userName}, you have no saved article`}
         </h1>
-        <h2 className='section__subtitle saved-articles__subtitle'>
-          By keywords:{" "}
-          <span className='saved-articles__subtitle-list'>
-            {`${keywords.filter((item, index) => index < 2)} ${
-              keywords.length > 2 ? `and ${keywords.length - 2} other` : "test"
-            }`}
-            {console.log(keywords.length)}
-          </span>
-        </h2>
+        {keywords ? (
+          <h2 className='section__subtitle saved-articles__subtitle'>
+            By keywords:{" "}
+            <span className='saved-articles__subtitle-list'>
+              {`${keywords && keywords.filter((item, index) => index < 2)} ${
+                keywords.length > 2 && `and ${keywords.length - 2} other`
+              }`}
+            </span>
+          </h2>
+        ) : (
+          ""
+        )}
       </div>
-      {list && <Articles list={list} type={"saved-articles"} />}
+      {articleList && (
+        <Articles
+          list={articleList}
+          updateList={setArticlesList}
+          type={"saved-articles"}
+        />
+      )}
     </section>
   );
 };

@@ -1,76 +1,124 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import SavedArticles from "../SavedArticles/SavedArticles";
 import InfoTooltip from "../InfoTooltip/InfoTooltip";
-
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import FormDataProvider from "../../context/form-context";
+import Login from "../Login/Login";
+import Register from "../Register/Register";
 import Header from "../Header/Header";
-
+import NotFound from "../NotFound/NotFound";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
 import "./App.css";
 
 import MobileContext from "../../context/mobile-context";
 import UserContext from "../../context/user-context";
-import Popup from "../Popup/Popup";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
+import * as auth from "../../utils/auth";
+
 function App() {
-  const [popupIsOpen, setPopupIsOpen] = useState(false);
+  const [loginPopupIsOpen, setLoginPopupIsOpen] = useState(false);
+  const [registerPopupIsOpen, setRegisterPopupIsOpen] = useState(false);
   const [toolTipIsOpen, setToolTipIsOpen] = useState(true);
-  const [popupType, setPopupType] = useState("Signin");
-  const [statusMessage, setStatusMessage] = useState("");
+  // const [popupType, setPopupType] = useState("Signin");
+  // const [statusMessage, setStatusMessage] = useState("Your mom");
+  // const [toolTipStatus, setToolTipStatus] = useState(false);
   let isMobile = useWindowSize().width < 531;
   const [userData, setUserData] = useState({
     signedStatus: false,
     userName: "Username",
   });
-
-  const openPopup = (value) => {
-    setPopupIsOpen(true);
-    setPopupType(value);
+  const [something, setSomething] = useState(false);
+  const handleLogin = () => {
+    return auth
+      .checkToken()
+      .then((validation) => {
+        setUserData({
+          signedStatus: true,
+          userName: `${validation.data.name}`,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        localStorage.clear();
+      });
+  };
+  const openRegisterPopup = () => {
+    setRegisterPopupIsOpen(true);
+  };
+  const openLoginPopup = () => {
+    setLoginPopupIsOpen(true);
   };
   const closePopup = () => {
-    setPopupIsOpen(false);
+    setLoginPopupIsOpen(false);
+    setRegisterPopupIsOpen(false);
     setToolTipIsOpen(false);
   };
-  const popupChangeType = (value) => {
-    setPopupType(value);
+  const openOtherPopup = () => {
+    setLoginPopupIsOpen(!loginPopupIsOpen);
+    setRegisterPopupIsOpen(!registerPopupIsOpen);
   };
+  const handleLogout = () => {
+    localStorage.clear();
+    setUserData({
+      signedStatus: false,
+      userName: "",
+    });
+  };
+  const handleSaveArticle = ({ data }) => {};
+  // const openTooltip = ({ tooltipStatus }) => {
+  //   setToolTipIsOpen(true);
+  //   setToolTipStatus(tooltipStatus);
+  //   setStatusMessage("test");
+  // };
 
+  useEffect(() => {
+    if (localStorage.getItem("jwt") !== null) handleLogin();
+  }, []);
+  useEffect(() => {}, [something]);
   return (
     <div className='App'>
       <MobileContext.Provider value={isMobile}>
         <UserContext.Provider value={userData}>
-          <Header openPopup={openPopup} />
+          <Header openPopup={openRegisterPopup} handleLogout={handleLogout} />
           <Routes>
-            <Route path='/saved-news' element={<SavedArticles />} />
+            <Route
+              exact
+              path='/saved-news'
+              element={
+                <ProtectedRoute redirectTo='/'>
+                  <SavedArticles />
+                </ProtectedRoute>
+              }
+            />
             <Route
               exact
               path='/'
               element={
                 <>
-                  <Main />
+                  <Main openLoginPopup={openLoginPopup} />
                 </>
               }
             />
+            <Route path='*' element={<NotFound />} />
           </Routes>
-          <Popup
-            isOpen={popupIsOpen}
-            onClose={closePopup}
-            popupType={popupType}
-            changeState={popupChangeType}
-            setUserData={setUserData}
-            changeStatus={setStatusMessage}
-          />
-          <InfoTooltip
-            isOpen={toolTipIsOpen}
-            onClose={closePopup}
-            noClose={false}
-            status={true}
-            statusMessage={`${statusMessage}`}
-          ></InfoTooltip>
         </UserContext.Provider>
       </MobileContext.Provider>
+      <FormDataProvider>
+        <Login
+          isOpen={loginPopupIsOpen}
+          onClose={closePopup}
+          openOtherPopup={openOtherPopup}
+          handleLogin={handleLogin}
+        ></Login>
+
+        <Register
+          isOpen={registerPopupIsOpen}
+          onClose={closePopup}
+          openOtherPopup={openOtherPopup}
+        ></Register>
+      </FormDataProvider>
       <Footer />
     </div>
   );

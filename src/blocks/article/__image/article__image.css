@@ -1,21 +1,25 @@
 .article__image {
   display: flex;
   width: 100%;
-  height: clamp(35.715%, 19.54vw, 47.3%);
+  min-height: 150px;
+  height: clamp(150px, 19.532vw, 272px);
   justify-content: space-between;
   background-color: #1a1b22;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  object-fit: fill;
+  margin-bottom: clamp(16px, 2.1vw, 20px);
 }
+
 @media screen and (max-width: 760px) {
   .article__image {
     height: clamp(150px, 35.6vw, 272px);
+    margin-bottom: clamp(16px, 3.13vw, 20px);
   }
 }
 
 @media screen and (max-width: 530px) {
   .article__image {
-    height: clamp(196px, 46.9vw, 282px);
+    height: clamp(196px, 61.25vw, 272px);
+    margin-bottom: clamp(16px, 5vw, 20px);
   }
 }

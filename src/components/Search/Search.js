@@ -1,62 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, createRef } from "react";
 import { useWindowSize } from "../../hooks/useWindowSize";
-import image1 from "../../assets/images/Treehugger.png";
-const Search = ({ setSearchWord, setIsResults }) => {
+import newsApi from "../../utils/NewsApi";
+const Search = ({ setSearchWord, setIsResults, setIsDone }) => {
   const [searchTarget, setSearchTarget] = useState("");
-
-  const updateValues = () => {
-    setIsResults([
-      {
-        title: `Everyone Needs a Special 'Sit Spot' in Nature`,
-        text: `Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...`,
-        keyword: "test",
-        image: image1,
-        date: new Date(Date.now()).toDateString(),
-        source: "treehugger",
-      },
-      {
-        title: `Everyone Needs a Special 'Sit Spot' in Nature`,
-        text: `Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...`,
-        keyword: "test",
-        image: image1,
-        date: new Date(Date.now()).toDateString(),
-        source: "treehugger",
-      },
-      {
-        title: `Everyone Needs a Special 'Sit Spot' in Nature`,
-        text: `Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...`,
-        keyword: "another",
-        image: image1,
-        date: new Date(Date.now()).toDateString(),
-        source: "treehugger",
-      },
-      {
-        title: `Everyone Needs a Special 'Sit Spot' in Nature`,
-        text: `Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...`,
-        keyword: "keyword",
-        image: image1,
-        date: new Date(Date.now()).toDateString(),
-        source: "treehugger",
-      },
-      {
-        title: `Everyone Needs a Special 'Sit Spot' in Nature`,
-        text: `Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...`,
-        keyword: "test",
-        image: image1,
-        date: new Date(Date.now()).toDateString(),
-        source: "treehugger",
-      },
-      {
-        title: `Everyone Needs a Special 'Sit Spot' in Nature`,
-        text: `Ever since I read Richard Louv's influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...`,
-        keyword: "lol",
-        image: image1,
-        date: new Date(Date.now()).toDateString(),
-        source: "treehugger",
-      },
-    ]);
-  };
-
+  const keywordRef = useRef();
   const postSearchBar =
     useWindowSize().width < 600 ? (
       <>
@@ -64,10 +11,18 @@ const Search = ({ setSearchWord, setIsResults }) => {
           <input
             className='search__field'
             placeholder='Random keyword'
+            required
+            onInvalid={(e) =>
+              e.target.setCustomValidity("Please enter keyword")
+            }
             onChange={(e) => {
+              e.target.value.length > 0
+                ? e.target.setCustomValidity("")
+                : e.target.setCustomValidity("Please enter keyword");
               setSearchTarget(e.target.value);
             }}
-            value={searchTarget || null}
+            value={searchTarget || ""}
+            ref={keywordRef}
           />
         </div>
         <button
@@ -83,9 +38,18 @@ const Search = ({ setSearchWord, setIsResults }) => {
           <input
             className='search__field'
             placeholder='Random keyword'
+            required
+            onInvalid={(e) =>
+              e.target.setCustomValidity("Please enter keyword")
+            }
             onChange={(e) => {
+              e.target.value.length > 0
+                ? e.target.setCustomValidity("")
+                : e.target.setCustomValidity("Please enter keyword");
               setSearchTarget(e.target.value);
             }}
+            value={searchTarget || ""}
+            ref={keywordRef}
           />
           <button className='search__button button' type='submit'>
             Search
@@ -93,9 +57,7 @@ const Search = ({ setSearchWord, setIsResults }) => {
         </div>
       </>
     );
-
   useEffect(() => {}, []);
-
   return (
     <section className='search' id='search'>
       <h1 className='search__title'>What's going on in the world?</h1>
@@ -107,9 +69,15 @@ const Search = ({ setSearchWord, setIsResults }) => {
         className='search__form'
         onSubmit={(e) => {
           e.preventDefault();
+          setIsDone(false);
           setSearchWord(`${searchTarget}`);
-          setIsResults([]);
-          setTimeout(() => updateValues(), 1200);
+
+          newsApi
+            .getArticles(keywordRef.current.value)
+            .then((res) => {
+              setIsResults(res.articles);
+            })
+            .then(() => setIsDone(true));
         }}
       >
         {postSearchBar}

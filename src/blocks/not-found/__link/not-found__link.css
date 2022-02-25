@@ -1,0 +1,9 @@
+.not-found__link {
+  text-decoration: none;
+  font-style: none;
+  color: #2f71e5;
+}
+
+.not-found__link:hover {
+  filter: drop-shadow(0 0 30px rgb(56, 73, 206));
+}

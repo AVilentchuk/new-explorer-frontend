@@ -27,6 +27,17 @@ class FormValidator {
       this._deactivateError(input);
       input.classList.remove(`${inputStatus}`);
     });
+    const formStatus = this._inputList.some((item) => !item.validity.valid);
+    this._controlSubmit(formStatus);
+    return this._element;
+  };
+  validateNoError = () => {
+    const { inputStatus } = this._settings;
+    this._inputList.forEach((input) => {
+      this._deactivateError(input);
+      input.classList.remove(`${inputStatus}`);
+      this._checkIfInputValid();
+    });
     this._controlSubmit(true);
     return this._element;
   };
