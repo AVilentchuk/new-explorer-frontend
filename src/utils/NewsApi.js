@@ -98,7 +98,7 @@ const to = new Date();
 const from = new Date(to);
 from.setDate(from.getDate() - 7);
 
-const newsApi = new NewsApi("https://newsapi.org/", {
+const newsApi = new NewsApi("https://nomoreparties.co/news/", {
   from,
   to,
   endpoint: "v2/everything",
