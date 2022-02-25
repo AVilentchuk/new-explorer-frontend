@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://api.alex-explorer.students.nomoreparties.sbs";
 const checkResponse = (response) => {
   if (response.ok) return response.json();
   return Promise.reject(response);

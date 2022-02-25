@@ -57,7 +57,7 @@ class Api {
   }
 }
 const options = {
-  baseUrl: "http://localhost:3000",
+  baseUrl: "https://api.alex-explorer.students.nomoreparties.sbs",
   token: `Bearer ${localStorage.getItem("jwt")}`,
 };
 
