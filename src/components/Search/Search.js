@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, createRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import newsApi from "../../utils/NewsApi";
 const Search = ({ setSearchWord, setIsResults, setIsDone }) => {

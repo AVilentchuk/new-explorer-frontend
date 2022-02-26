@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import SavedArticles from "../SavedArticles/SavedArticles";
-import InfoTooltip from "../InfoTooltip/InfoTooltip";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import FormDataProvider from "../../context/form-context";
 import Login from "../Login/Login";
@@ -14,22 +13,20 @@ import "./App.css";
 
 import MobileContext from "../../context/mobile-context";
 import UserContext from "../../context/user-context";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import * as auth from "../../utils/auth";
+import api from "../../utils/MainApi";
 
 function App() {
   const [loginPopupIsOpen, setLoginPopupIsOpen] = useState(false);
   const [registerPopupIsOpen, setRegisterPopupIsOpen] = useState(false);
   const [toolTipIsOpen, setToolTipIsOpen] = useState(true);
-  // const [popupType, setPopupType] = useState("Signin");
-  // const [statusMessage, setStatusMessage] = useState("Your mom");
-  // const [toolTipStatus, setToolTipStatus] = useState(false);
+
   let isMobile = useWindowSize().width < 531;
   const [userData, setUserData] = useState({
     signedStatus: false,
     userName: "Username",
   });
-  const [something, setSomething] = useState(false);
   const handleLogin = () => {
     return auth
       .checkToken()
@@ -38,6 +35,7 @@ function App() {
           signedStatus: true,
           userName: `${validation.data.name}`,
         });
+        api.updateToken();
       })
       .catch((error) => {
         console.log(error);
@@ -66,17 +64,18 @@ function App() {
       userName: "",
     });
   };
-  const handleSaveArticle = ({ data }) => {};
-  // const openTooltip = ({ tooltipStatus }) => {
-  //   setToolTipIsOpen(true);
-  //   setToolTipStatus(tooltipStatus);
-  //   setStatusMessage("test");
-  // };
 
   useEffect(() => {
-    if (localStorage.getItem("jwt") !== null) handleLogin();
+    if (localStorage.getItem("jwt") !== null) {
+      auth.checkToken().then((validation) => {
+        setUserData({
+          signedStatus: true,
+          userName: `${validation.data.name}`,
+        });
+      });
+    }
   }, []);
-  useEffect(() => {}, [something]);
+
   return (
     <div className='App'>
       <MobileContext.Provider value={isMobile}>

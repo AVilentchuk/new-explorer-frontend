@@ -1,6 +1,7 @@
-import { useContext, useEffect, useRef, useState, createRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import UserContext from "../../context/user-context";
 import api from "../../utils/MainApi";
+import placeholder from "../../assets/images/placeholder.png";
 
 const Article = ({
   image,
@@ -65,9 +66,10 @@ const Article = ({
       <div
         className='article__image'
         style={{
-          background: `url(${image}) no-repeat center/cover`,
+          background: `url(${image || placeholder}) no-repeat center/cover`,
         }}
         ref={imageRef}
+        onClick={() => window.open(link, "_blank")}
       >
         <div className='article__keywords'>
           {type === "saved-articles" ? (
@@ -81,7 +83,10 @@ const Article = ({
             <button
               className={`article__button article__button_delete button`}
               type='button'
-              onClick={(e) => removeArticle(e)}
+              onClick={(e) => {
+                e.stopPropagation();
+                removeArticle(e);
+              }}
             ></button>
           ) : (
             <button
@@ -89,7 +94,10 @@ const Article = ({
                 isSaved ? "article__button_saved" : ""
               } button`}
               type='button'
-              onClick={signedStatus ? saveArticle : openPopup}
+              onClick={(e) => {
+                e.stopPropagation();
+                signedStatus ? saveArticle() : openPopup();
+              }}
             ></button>
           )}
 
@@ -112,7 +120,6 @@ const Article = ({
           className='article__content-title'
           ref={titleRef}
           onMouseEnter={() => {
-            const holder = titleRef.current.innerText;
             titleRef.current.innerText = titleText;
           }}
         >

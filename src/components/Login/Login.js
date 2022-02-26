@@ -1,8 +1,7 @@
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useContext } from "react";
 import { FormContext } from "../../context/form-context";
-import { authorize, register } from "../../utils/auth";
-import InfoTooltip from "../InfoTooltip/InfoTooltip";
+import { authorize } from "../../utils/auth";
 
 const Login = ({ isOpen, onClose, openOtherPopup, handleLogin }) => {
   const {

@@ -23,7 +23,9 @@ const InfoTooltip = ({
   useEffect(() => {
     if (status === null) setToolTipMessage(statusMessage);
     if (status) {
-      setToolTipMessage(` ${statusMessage}`);
+      setToolTipMessage(
+        ` ${statusMessage}`
+      );
     } else if (status === false) {
       setToolTipMessage(
         `Oops, something went wrong! Please try again.  \n Error: ${statusMessage}.`

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Articles from "../Articles/Articles";
 
 const SearchResults = ({ isResults, isDone, keyword, openPopup }) => {

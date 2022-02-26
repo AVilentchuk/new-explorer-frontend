@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Article from "../Article/Article";
 import MobileContext from "../../context/mobile-context";
-import image1 from "../../assets/images/Treehugger.png";
 
 const Articles = ({
   type,

@@ -8,6 +8,7 @@
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   margin-bottom: clamp(16px, 2.1vw, 20px);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 760px) {
