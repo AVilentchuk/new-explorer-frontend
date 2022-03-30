@@ -7,6 +7,7 @@ const InfoTooltip = ({
   status,
   statusMessage,
   noClose,
+  caption,
 }) => {
   const spinner = (
     <svg className='tooltip_spinner'>
@@ -23,7 +24,7 @@ const InfoTooltip = ({
     if (status === null) setToolTipMessage(statusMessage);
     if (status) {
       setToolTipMessage(
-        ` ${statusMessage}Registration successfully completed!`
+        ` ${statusMessage}`
       );
     } else if (status === false) {
       setToolTipMessage(
@@ -53,9 +54,11 @@ const InfoTooltip = ({
             onClick={onClose}
           ></button>
         )}
-
+        <div className={`tooltip ${handleTooltipImage()} `}>
+          {status === null && spinner}
+        </div>
         <h2 className='popup__title popup__title_tooltip'>{toolTipMessage}</h2>
-        {<a className='popup__subtitle'>Sign in</a>}
+        {caption && status && caption}
       </div>
     </div>
   );

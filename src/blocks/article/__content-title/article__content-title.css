@@ -3,29 +3,38 @@
   margin: 0 16px 14px;
   font-family: Roboto Slab, Arial, Helvetica, sans-serif;
   font-weight: normal;
-  font-size: clamp(22px, 1.805vw, 26px);
-  line-height: clamp(24px, 2.08vw, 30px);
-  max-height: clamp(48px, 13.125vw, 72px);
-  /* or 109% */
-
-  /* main/primary */
+  font-size: clamp(22px, 2.865vw, 26px);
+  line-height: clamp(24px, 3.125vw, 30px);
+  max-height: clamp(48px, 6.315vw, 72px);
+  height: max-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 
   color: #1a1b22;
+  transition: max-height 0.5s ease-in-out 0.5s;
+}
+.article__content-title::after {
+  display: none;
 }
 @media screen and (max-width: 760px) {
   .article__content-title {
-    font-size: clamp(22px, 4.3vw, 26px);
-    line-height: clamp(24px, 4.3vw, 30px);
-    max-height: clamp(48px, 9.125vw, 72px);
+    font-size: clamp(22px, 3.5vw, 26px);
+    line-height: clamp(24px, 4vw, 30px);
+    max-height: clamp(48px, 9.5vw, 72px);
   }
 }
 
 @media screen and (max-width: 530px) {
   .article__content-title {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    font-size: clamp(22px, 100vw/18, 26px);
-    line-height: clamp(24px, 100vw/14, 30px);
+    font-size: clamp(22px, 6.9vw, 26px);
+    line-height: clamp(24px, 7.5vw, 30px);
     max-height: clamp(48px, 15vw, 72px);
   }
+}
+.article__content-title:hover {
+  max-height: 150px;
+  -webkit-line-clamp: 5;
 }

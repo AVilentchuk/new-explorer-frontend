@@ -1,5 +1,5 @@
 .article__content-source {
-  margin: clamp(12px, 100vw/22 - 25px, 40px) auto clamp(16px, 2.083vw, 24px)
+  margin: auto auto clamp(16px, 2.083vw, 24px)
     clamp(16px, 2.083vw, 24px);
   text-align: left;
   font-family: Roboto Slab, Arial, Helvetica, sans-serif;

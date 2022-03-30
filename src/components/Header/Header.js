@@ -7,7 +7,7 @@ import { ReactComponent as MenuButton } from "../../assets/icons/mobile_menu.svg
 import { ReactComponent as LogoutIcon } from "../../assets/icons/logout.svg";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ openPopup }) => {
+const Header = ({ openPopup, handleLogout }) => {
   const isMobile = useContext(MobileContext);
   const [headerOpen, setHeaderOpen] = useState(false);
   const { signedStatus, userName } = useContext(UserContext);
@@ -84,6 +84,7 @@ const Header = ({ openPopup }) => {
             className='header__button header__button_logout button_mobile button'
             type='button'
             style={theme ? theme.button : null}
+            onClick={handleLogout}
           >
             {userName}
             <LogoutIcon className='header__logout-icon' />
@@ -152,6 +153,7 @@ const Header = ({ openPopup }) => {
             className='header__button header__button_logout button'
             type='button'
             style={theme ? theme.button : null}
+            onClick={handleLogout}
           >
             {userName}
             <LogoutIcon className='header__logout-icon' />
@@ -169,11 +171,12 @@ const Header = ({ openPopup }) => {
       </div>
     </header>
   );
+  useEffect(() => {}, [signedStatus]);
   useEffect(() => {
     !isMobile && setHeaderOpen(false);
   }, [isMobile, signedStatus]);
   useEffect(() => {
-    window.location.pathname === "/saved-news"
+    window.location.pathname !== "/"
       ? setTheme(light)
       : setTheme(dark);
   }, [window.location.pathname, light, dark]);

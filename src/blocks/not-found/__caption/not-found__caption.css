@@ -1,0 +1,6 @@
+.not-found__caption {
+  margin: 10px clamp(16px, 5vw, 50px);
+  font-family: Roboto Slab, Ariel;
+  color: #000;
+  font-size: clamp(14px, 4.375vw, 20px);
+}

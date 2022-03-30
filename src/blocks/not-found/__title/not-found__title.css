@@ -1,0 +1,5 @@
+.not-found__title {
+  font-family: Roboto Slab, Ariel;
+  color: #000;
+  font-size: clamp(35px, 11vw, 75px);
+}

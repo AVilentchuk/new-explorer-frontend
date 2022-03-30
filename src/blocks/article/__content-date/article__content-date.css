@@ -1,6 +1,5 @@
 .article__content-date {
-  margin: clamp(16px, 6.25vw, 20px) clamp(16px, 5vw, 24px)
-    clamp(12px, 3.125vw, 10px);
+  margin: 0 clamp(16px, 5vw, 24px) clamp(12px, 3.125vw, 10px);
   font-family: Source Sans Pro, Arial, Helvetica, sans-serif;
   font-weight: normal;
   font-size: 18px;
@@ -17,14 +16,12 @@
 }
 @media screen and (max-width: 760px) {
   .article__content-date {
-    margin: clamp(16px, 6.25vw, 20px) clamp(16px, 5vw, 24px)
-      clamp(12px, 3.125vw, 10px);
+    margin: 0 clamp(16px, 5vw, 24px) clamp(12px, 3.125vw, 10px);
   }
 }
 
 @media screen and (max-width: 530px) {
   .article__content-date {
-    margin: clamp(16px, 5vw, 20px) clamp(16px, 5vw, 24px)
-      clamp(10px, 3.125vw, 12px);
+    margin: 0 clamp(16px, 5vw, 24px) clamp(10px, 3.125vw, 12px);
   }
 }

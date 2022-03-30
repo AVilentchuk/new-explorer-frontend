@@ -3,7 +3,7 @@
   flex-direction: column;
   width: clamp(224px, 29.17vw, 400px);
   height: clamp(420px, 54.7vw, 576px);
-  /* border: #1a1b22 2px solid; */
+
   border-radius: 10px;
   background: #ffffff;
 }
@@ -206,7 +206,7 @@
     height: clamp(150px, 35.6vw, 272px);
   } */
   .article {
-    width: clamp(224px, 43.1vw, 400px);
+    width: clamp(224px, (100vw - 40px)/2, 400px);
     height: clamp(420px, 77.7vw, 576px);
   }
   /* .article__keywords {
